@@ -221,6 +221,7 @@ a:hover {
     overflow: hidden;
     padding: var(--spacing-2xl) 0;
     scroll-margin-top: 100px;
+    padding-top: calc(var(--spacing-2xl) + 80px);
 }
 
 .hero::before {
