@@ -1,0 +1,6 @@
+Error: Script(script.js) is not loading when hosted in github with error:
+    content.js:74209 Refused to load the script 'https://ravirohit.github.io/agama-digital-solutions/@excalidraw/excalidraw@0.17.6/dist/excalidraw-assets/vendor-677e88ca78c86bddf13d.js'
+    because it violates the following Content Security Policy directive: "script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' chrome-extension://2cf960da-9177-4b91-93e8-75e26b96df29/". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Solution:
+    added below code in index.html and it worked.
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' https://ravirohit.github.io/ https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">

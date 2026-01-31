@@ -1,37 +1,9 @@
 [
   {
     "id": 1,
-    "userName": "John Smith",
-    "comment": "Excellent service! The team delivered a stunning website that exceeded our expectations. Highly recommended!",
+    "userName": "Neha Singh",
+    "comment": "I got my website created called, The Wedding Pitara. It`s very elegant and easy to access. They themselves suggested some modifications on top of my requirements and provided an amazing website which everyone likes.",
     "date": "2026-01-28",
-    "rating": 3
-  },
-  {
-    "id": 2,
-    "userName": "Sarah Johnson",
-    "comment": "Professional and responsive team. They understood our requirements perfectly and delivered on time. Great experience!",
-    "date": "2026-01-25",
     "rating": 5
-  },
-  {
-    "id": 3,
-    "userName": "Michael Chen",
-    "comment": "The standalone application they built for our business has transformed our operations. Outstanding quality and support!",
-    "date": "2026-01-22",
-    "rating": 4
-  },
-  {
-    "id": 4,
-    "userName": "Emily Rodriguez",
-    "comment": "Affordable pricing combined with professional service. I'm impressed with the attention to detail and creativity.",
-    "date": "2026-01-19",
-    "rating": 5
-  },
-  {
-    "id": 5,
-    "userName": "David Thompson",
-    "comment": "Great team to work with. They were always available for questions and ensured the project was completed successfully.",
-    "date": "2026-01-15",
-    "rating": 4
   }
 ]
