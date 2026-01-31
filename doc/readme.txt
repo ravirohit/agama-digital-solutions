@@ -10,3 +10,13 @@ Steps to deploy static page in github:
     Ensure it is set to master (or main).
     Ensure the folder is set to / (root).
     Click Save.
+
+Steps to server these static file using python server: 
+    go to the directory C:\Users\ravis\Documents\Agama Digital Software Applications\agama-web-desinger
+    Start the python server: 
+      #python -m http.server 8000 
+    access the website usring url: http://localhost:8000/
+    What happens when we access url:
+        The server looks for index.html in your workspace folder
+        When your JavaScript fetches comments.json, the server reads that file and serves it with proper HTTP headers
+        All CSS, JS, and image files are served the same way

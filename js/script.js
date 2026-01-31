@@ -104,3 +104,84 @@ document.querySelectorAll('.service-card, .contact-box').forEach(element => {
     element.style.transition = 'all 0.6s ease-out';
     observer.observe(element);
 });
+
+// Load and display comments from JSON file
+async function loadComments() {
+    try {
+        const response = await fetch('assets/comments.json');
+        if (!response.ok) {
+            throw new Error('Failed to load comments');
+        }
+        const comments = await response.json();
+        displayComments(comments);
+    } catch (error) {
+        console.error('Error loading comments:', error);
+        const container = document.getElementById('comments-container');
+        if (container) {
+            container.innerHTML = '<p style="text-align: center; color: var(--color-text-secondary);">Unable to load comments at this time.</p>';
+        }
+    }
+}
+
+function displayComments(comments) {
+    const container = document.getElementById('comments-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    comments.forEach((comment, index) => {
+        const commentCard = document.createElement('div');
+        commentCard.className = 'comment-card';
+        commentCard.style.opacity = '0';
+        commentCard.style.transform = 'translateY(20px)';
+        commentCard.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+
+        const commentHTML = `
+            <div class="comment-header">
+                <div class="comment-user">
+                    <div class="comment-user-name">${escapeHtml(comment.userName)}</div>
+                    <div class="comment-date">${new Date(comment.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+                </div>
+                <div class="comment-rating">${generateStars(comment.rating)}</div>
+            </div>
+            <div class="comment-text">${escapeHtml(comment.comment)}</div>
+        `;
+
+        commentCard.innerHTML = commentHTML;
+        container.appendChild(commentCard);
+
+        // Trigger animation
+        setTimeout(() => {
+            commentCard.style.opacity = '1';
+            commentCard.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Observe for fade-in on scroll
+        observer.observe(commentCard);
+    });
+}
+
+// Helper function to escape HTML special characters
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Helper function to generate star rating
+function generateStars(rating) {
+    let stars = '';
+    for (let i = 0; i < 5; i++) {
+        stars += i < rating ? '★' : '☆';
+    }
+    return stars;
+}
+
+// Load comments when page loads
+document.addEventListener('DOMContentLoaded', loadComments);
+
