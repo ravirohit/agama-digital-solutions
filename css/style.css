@@ -531,6 +531,9 @@ section:not(.hero) {
     color: var(--color-text-primary);
     font-weight: 500;
     transition: var(--transition);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .contact-box a:hover {
@@ -630,6 +633,13 @@ footer p {
     
     .contact-wrapper {
         grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    
+    .contact-box {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
     
     section {
